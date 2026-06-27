@@ -1,20 +1,21 @@
 /* ===== Theme tokens ===== */
 :root {
-  --bg: #0d1117;
-  --bg-alt: #111824;
-  --surface: #161e2e;
-  --surface-2: #1c2638;
-  --border: #243044;
-  --text: #e6edf3;
-  --text-muted: #9aa7b8;
-  --accent: #4f8cff;
-  --accent-2: #38e0c4;
-  --accent-hover: #3b78f0;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --bg: #ffffff;
+  --bg-alt: #f4f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f8;
+  --border: #e3e8ef;
+  --text: #0f172a;
+  --text-muted: #5b6676;
+  --accent: #2563eb;
+  --accent-2: #0d9488;
+  --accent-hover: #1d4ed8;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
   --radius: 14px;
   --radius-sm: 10px;
   --max-width: 1080px;
   --transition: 0.25s ease;
+  --header-h: 67px;
 }
 
 /* ===== Reset ===== */
@@ -28,7 +29,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: var(--header-h);
 }
 
 body {
@@ -37,6 +38,12 @@ body {
   color: var(--text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Prevent background scroll while the mobile menu is open */
+body.nav-open {
+  overflow: hidden;
 }
 
 img {
@@ -75,7 +82,7 @@ a {
 .btn-primary {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(79, 140, 255, 0.35);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
 }
 
 .btn-primary:hover {
@@ -103,7 +110,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 17, 23, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -212,8 +219,8 @@ a {
   position: relative;
   padding: 110px 0 90px;
   background:
-    radial-gradient(900px 400px at 80% -10%, rgba(79, 140, 255, 0.18), transparent 60%),
-    radial-gradient(700px 380px at 10% 10%, rgba(56, 224, 196, 0.12), transparent 55%);
+    radial-gradient(900px 400px at 80% -10%, rgba(37, 99, 235, 0.1), transparent 60%),
+    radial-gradient(700px 380px at 10% 10%, rgba(13, 148, 136, 0.08), transparent 55%);
 }
 
 .hero-inner {
@@ -233,7 +240,7 @@ a {
   font-size: clamp(2.4rem, 6vw, 4rem);
   line-height: 1.1;
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff, #9fc2ff);
+  background: linear-gradient(135deg, #0f172a, #2563eb);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -515,22 +522,37 @@ a {
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
+    z-index: 120;
+  }
+
+  /* Backdrop behind the drawer (below the sticky header's z-index: 100,
+     above regular page content) */
+  body.nav-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
   }
 
   .nav-menu {
     position: fixed;
-    top: 67px;
+    top: 0;
     right: 0;
-    height: calc(100vh - 67px);
-    width: min(75%, 300px);
+    height: 100vh;
+    height: 100dvh;
+    width: min(80%, 320px);
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 28px 24px;
+    align-items: stretch;
+    gap: 4px;
+    padding: calc(var(--header-h) + 16px) 22px 32px;
     background: var(--surface);
     border-left: 1px solid var(--border);
+    box-shadow: -12px 0 30px rgba(0, 0, 0, 0.35);
     transform: translateX(100%);
     transition: transform 0.3s ease;
+    overflow-y: auto;
+    z-index: 110;
   }
 
   .nav-menu.open {
@@ -539,17 +561,24 @@ a {
 
   .nav-menu li {
     width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   .nav-link {
     display: block;
     width: 100%;
-    padding: 10px 0;
-    font-size: 1.05rem;
+    padding: 14px 6px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-link::after {
+    display: none;
   }
 
   .hero {
-    padding: 80px 0 60px;
+    padding: 70px 0 60px;
   }
 
   .section {
@@ -558,13 +587,39 @@ a {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
   .brand-name {
     display: none;
+  }
+
+  .hero-actions {
+    width: 100%;
   }
 
   .hero-actions .btn {
     flex: 1 1 100%;
     text-align: center;
+  }
+
+  .stats {
+    gap: 14px;
+  }
+
+  .stat {
+    flex: 1 1 100%;
+  }
+
+  .skill-card,
+  .project-body,
+  .contact-card {
+    padding: 20px;
+  }
+
+  .project-logo {
+    padding: 24px;
   }
 }
 

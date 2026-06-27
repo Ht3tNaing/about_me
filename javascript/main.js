@@ -7,17 +7,20 @@
   const sections = document.querySelectorAll("main section[id]");
 
   // Mobile menu toggle
+  function setMenu(isOpen) {
+    navMenu.classList.toggle("open", isOpen);
+    navToggle.classList.toggle("open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  }
+
   function closeMenu() {
-    navMenu.classList.remove("open");
-    navToggle.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
+    setMenu(false);
   }
 
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", function () {
-      const isOpen = navMenu.classList.toggle("open");
-      navToggle.classList.toggle("open", isOpen);
-      navToggle.setAttribute("aria-expanded", String(isOpen));
+      setMenu(!navMenu.classList.contains("open"));
     });
 
     // Close menu when a link is clicked
@@ -25,7 +28,7 @@
       link.addEventListener("click", closeMenu);
     });
 
-    // Close menu when clicking outside of it
+    // Close menu when tapping the backdrop / outside the drawer
     document.addEventListener("click", function (e) {
       if (
         navMenu.classList.contains("open") &&
@@ -39,6 +42,13 @@
     // Close menu on Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeMenu();
+    });
+
+    // Reset menu state if resizing back up to desktop
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 768 && navMenu.classList.contains("open")) {
+        closeMenu();
+      }
     });
   }
 

@@ -4,7 +4,6 @@
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("main section[id]");
 
-  // Highlight active nav link based on scroll position
   if ("IntersectionObserver" in window && sections.length) {
     const observer = new IntersectionObserver(
       function (entries) {
@@ -28,7 +27,6 @@
     });
   }
 
-  // Set current year in footer
   const yearEl = document.getElementById("year");
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();

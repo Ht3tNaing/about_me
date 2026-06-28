@@ -1,4 +1,3 @@
-/* ===== Theme tokens ===== */
 :root {
   --bg: #ffffff;
   --bg-alt: #f4f7fb;
@@ -18,7 +17,6 @@
   --header-h: 67px;
 }
 
-/* ===== Reset ===== */
 *,
 *::before,
 *::after {
@@ -58,7 +56,6 @@ a {
   padding: 0 20px;
 }
 
-/* ===== Buttons ===== */
 .btn {
   display: inline-block;
   padding: 12px 26px;
@@ -100,7 +97,6 @@ a {
   font-size: 0.88rem;
 }
 
-/* ===== Header / Nav ===== */
 .site-header {
   position: sticky;
   top: 0;
@@ -179,7 +175,6 @@ a {
   width: 100%;
 }
 
-/* ===== Hero ===== */
 .hero {
   position: relative;
   padding: 110px 0 90px;
@@ -231,7 +226,6 @@ a {
   margin-top: 30px;
 }
 
-/* ===== Sections ===== */
 .section {
   padding: 80px 0;
 }
@@ -270,7 +264,6 @@ a {
   text-align: center;
 }
 
-/* ===== Stats ===== */
 .stats {
   display: flex;
   flex-wrap: wrap;
@@ -299,7 +292,6 @@ a {
   font-size: 0.95rem;
 }
 
-/* ===== Skills ===== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -329,7 +321,6 @@ a {
   font-size: 0.95rem;
 }
 
-/* ===== Projects ===== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -396,7 +387,6 @@ a {
   align-self: flex-start;
 }
 
-/* ===== Contact ===== */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -436,7 +426,6 @@ a {
   word-break: break-word;
 }
 
-/* ===== Footer ===== */
 .site-footer {
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
@@ -483,7 +472,6 @@ a {
   font-size: 0.85rem;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .navbar {
     flex-wrap: wrap;
@@ -492,7 +480,6 @@ a {
     padding: 12px 0 10px;
   }
 
-  /* Single-row, horizontally scrollable nav (swipe sideways, no drawer) */
   .nav-menu {
     width: 100%;
     flex-wrap: nowrap;
@@ -519,7 +506,6 @@ a {
     white-space: nowrap;
   }
 
-  /* Header wraps to two rows on mobile, so offset anchor scrolling more */
   html {
     scroll-padding-top: 120px;
   }
@@ -574,7 +560,6 @@ a {
   }
 }
 
-/* ===== Accessibility ===== */
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;

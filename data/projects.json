@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Lan Media",
+    "description": "Turn your phone into a local Wi-Fi server to share photos, videos, and folders with no internet, no account, and no cloud required. Other devices don't need the app installed—simply open the provided link or scan the QR code in any Web Browser to stream or download instantly.",
+    "logo": "assets/lan_media.png",
+    "url": "https://lan-media.naikyee.com"
+  },
+  {
+    "name": "ESP POS",
+    "description": "Run your shop and mobile-money business from one app. POS sales, e-wallet exchange, stock, daily cash, and profit tracking — all from your phone or tablet. Offline-first, with optional backup and multi-device sync.",
+    "logo": "assets/esppos_logo.png",
+    "url": "https://esppos.naikyee.com"
+  },
+  {
+    "name": "Aura Player",
+    "subtitle": "Professional Custom Equalizer",
+    "description": "Audiophile video player with a professional 31-band equalizer and neon visualizers. Customize your sound with 31 distinct frequency bands using high-precision filters.",
+    "logo": "assets/aura_player_logo.png",
+    "url": "https://aura-player.naikyee.com"
+  }
+]

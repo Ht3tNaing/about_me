@@ -1,12 +1,14 @@
 [
   {
     "name": "Lan Media",
+    "subtitle": "Local HTTP File Server",
     "description": "Turn your phone into a local Wi-Fi server to share photos, videos, and folders with no internet, no account, and no cloud required. Other devices don't need the app installed—simply open the provided link or scan the QR code in any Web Browser to stream or download instantly.",
     "logo": "assets/lan_media.png",
     "url": "https://lan-media.naikyee.com"
   },
   {
     "name": "ESP POS",
+    "subtitle": "Point of Sale",
     "description": "Run your shop and mobile-money business from one app. POS sales, e-wallet exchange, stock, daily cash, and profit tracking — all from your phone or tablet. Offline-first, with optional backup and multi-device sync.",
     "logo": "assets/esppos_logo.png",
     "url": "https://esppos.naikyee.com"
